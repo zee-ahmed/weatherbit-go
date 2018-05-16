@@ -1,0 +1,10 @@
+# Not pushing personal API key - this is read in by Go program
+api_key.*
+
+# No need to push hidden files with the exception of gitignore and Travis CI
+.*
+!/.gitignore
+!/.travis.yml
+
+# Markdown file used for locally tracking TODOs
+weatherbit-go.md
