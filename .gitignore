@@ -1,5 +1,5 @@
 # Not pushing personal API key - this is read in by Go program
-api_key.*
+*/api_key.*
 
 # No need to push hidden files with the exception of gitignore and Travis CI
 .*

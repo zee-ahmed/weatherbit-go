@@ -81,7 +81,8 @@ type DataPoint struct {
 // WeatherPoint holds nested JSON object 'data.weather'
 // See https://www.weatherbit.io/api/codes for details
 type WeatherPoint struct {
-	Icon        string `json:"icon,omitempty"`
-	Code        string `json:"code,omitempty"`
-	Description string `json:"description,omitempty"`
+	Icon string `json:"icon,omitempty"`
+	//TODO: Code is sometimes thought to be float64, other times string. Generates Marshall error
+	Code        float64 `json:"code,omitempty"`
+	Description string  `json:"description,omitempty"`
 }

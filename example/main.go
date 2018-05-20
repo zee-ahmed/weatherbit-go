@@ -1,15 +1,15 @@
 package main
 
 import (
-	"log"
-
+	"fmt"
 	wb "github.com/alljames/weatherbit-go/weatherbit"
+	"github.com/wcharczuk/go-chart"
+	"net/http"
 )
 
 // Parameters struct from the weatherbit package
 // holds easily customisable fields to make an API request
 // The weatherbit-go package takes care of the rest!
-// TODO: look at documentation for recommendations for exported structs in Golang
 func populaterequestparameters(apikey string) wb.Parameters {
 
 	P := wb.Parameters{}
@@ -18,24 +18,67 @@ func populaterequestparameters(apikey string) wb.Parameters {
 	P.City = "" // EITHER specify city OR specify lat & lon
 	P.Lat = 51.4415
 	P.Lon = -2.6017
-	P.Temporality = "current" // "current", "history", "forecast"
+	P.Temporality = "forecast" // "current", "history", "forecast"
 	P.Apikey = apikey
 
-	// FOR USE WITH HISTORY OR FUTURE QUERIES
-	P.Granularity = ""            // specify "hourly" OR "daily"
-	P.StartDate = "2018-05-07:18" // [YYYY-MM-DD OR YYYY-MM-DD:HH]
-	P.EndDate = "2018-05-08:22"   // [YYYY-MM-DD OR YYYY-MM-DD:HH]
+	// FOR USE WITH HISTORY OR FORECAST QUERIES
+	P.Granularity = "hourly"      // specify "hourly" OR "daily"
+	P.StartDate = "2018-05-19:14" // [YYYY-MM-DD OR YYYY-MM-DD:HH]
+	P.EndDate = "2018-05-20:02"   // [YYYY-MM-DD OR YYYY-MM-DD:HH]
 
 	return P
 }
 
 func main() {
 
-	log.Println("Starting")
-	apikey, _ := wb.Readapikey("api_key.txt")
+	fmt.Println("Starting")
+	http.HandleFunc("/", drawChart)
+	http.ListenAndServe(":8080", nil)
+
+}
+
+func drawChart(resp http.ResponseWriter, req *http.Request) {
+
+	apikey, wberr := wb.Readapikey("api_key.txt")
+	if wberr != nil {
+		panic("err")
+	}
 	p := populaterequestparameters(apikey)
 	result := wb.GetResponse(p)
-	wb.Prettyprint(result)
-	log.Println("GHI:", result.Data[0].Ghi)
+	resultlength := len(result.Data)
 
+	xSlice := make([]float64, resultlength)
+	ySlice := make([]float64, resultlength)
+
+	for i := 0; i < resultlength; i++ {
+		xSlice[i] = result.Data[i].LastObservationTimeStamp
+		ySlice[i] = result.Data[i].Ghi
+	}
+
+	graph := chart.Chart{
+		XAxis: chart.XAxis{
+			Style: chart.Style{
+				Show: true, //enables / displays the x-axis
+			},
+		},
+		YAxis: chart.YAxis{
+			Style: chart.Style{
+				Show: true, //enables / displays the y-axis
+			},
+		},
+		Series: []chart.Series{
+			chart.ContinuousSeries{
+				Style: chart.Style{
+					Show:        true,
+					StrokeColor: chart.GetDefaultColor(0).WithAlpha(64),
+					FillColor:   chart.GetDefaultColor(0).WithAlpha(64),
+				},
+				XValues: xSlice,
+				YValues: ySlice,
+			},
+		},
+	}
+
+	resp.Header().Set("Content-Type", "image/png")
+	graph.Render(chart.PNG, resp)
 }
