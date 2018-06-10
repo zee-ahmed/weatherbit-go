@@ -43,11 +43,13 @@ type DataPoint struct {
 	Precipitation            float64      `json:"precip,omitempty"`  // millimetres
 	Station                  string       `json:"station,omitempty"` // source station ID
 	WindSpeed                float64      `json:"wind_spd,omitempty"`
-	SolarElevationAngle      float64      `json:"elev_angle,omitempty"` // degrees
-	SolarHourAngle           float64      `json:"h_angle,omitempty"`    // degrees
-	CloudCover               float64      `json:"clouds,omitempty"`     // percentage of sky covered by cloud
-	UV                       float64      `json:"uv,omitempty"`         // UV Index (0-11+)
-	Dhi                      float64      `json:"dhi,omitempty"`        // Diffuse Horizontal Irradiance
+	// SolarElevationAngle is the altitude of the Sun (the angle between the horizon and the centre of the Sun's disc)
+	SolarElevationAngle float64 `json:"elev_angle,omitempty"` // degrees
+	// SolarHourAngle is positive during the morning, reduces to zero at solar noon and decreases further during the afternoon
+	SolarHourAngle float64 `json:"h_angle,omitempty"` // degrees
+	CloudCover     float64 `json:"clouds,omitempty"`  // percentage of sky covered by cloud
+	UV             float64 `json:"uv,omitempty"`      // UV Index (0-11+)
+	Dhi            float64 `json:"dhi,omitempty"`     // Diffuse Horizontal Irradiance
 
 	// Additional fields for current (undocumented on Weatherbit.io API documentation?)
 	Dni float64 `json:"dni,omitempty"` // Direct Normal Irradiance
@@ -83,6 +85,6 @@ type DataPoint struct {
 type WeatherPoint struct {
 	Icon string `json:"icon,omitempty"`
 	//TODO: Code is sometimes thought to be float64, other times string. Generates Marshall error
-	Code        float64 `json:"code,omitempty"`
-	Description string  `json:"description,omitempty"`
+	Code        string `json:"code,omitempty"`
+	Description string `json:"description,omitempty"`
 }
