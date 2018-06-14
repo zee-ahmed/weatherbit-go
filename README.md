@@ -6,7 +6,7 @@ Weatherbit API documentation can be found [here](https://www.weatherbit.io/api).
 
 The API endpoints currently supported by the Go API wrapper matches the endpoints supported by the [Python API wrapper](https://github.com/weatherbit/weatherbit-python).
 
-The Go program takes three criteria:
+The Go program has three requirements:
 
 | Criterion                                            | Name          |
 | ------                                               |:------------- |
@@ -21,8 +21,6 @@ With a Golang installation and an API key saved in the **example** folder, open 
 ```bash
 go run main.go
 ```
-
-You can now navigate to 0.0.0.0:8080, where you will see a basic chart displaying the Global Horizontal Irradiance in Bristol, England for the next 48 hours.
 
 ## Design decisions
 
@@ -51,7 +49,7 @@ Place your API Key into a file named api_key.txt (inside the same directory as t
 Get involved! This package has a *lot* of room for improvement. Below are a list of Go features which could be used in this package to good effect.
 
 * Tests! Testing has significant room for improvement.
-* Handle spaces in City name more gracefully - i.e. if space, convert to %20
+* Handle spaces in City name more gracefully - i.e. if space, convert to %20. This is a fairly easy first issue.
 
 Read the docs, write and try out some improvements and then make a pull request :smile: !
 
