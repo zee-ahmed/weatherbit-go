@@ -10,9 +10,9 @@ The Go program has three requirements:
 
 | Criterion                                            | Name          |
 | ------                                               |:------------- |
-| [API key](https://www.weatherbit.io/pricing)         | Save in api_key.txt. [Requirements](#requirements) section provides more details       |
-| Location                                             | modify wb.Parameters - see populaterequestparameters() in ./example/main.go            |
-| Granularity                                          | modify wb.Parameters - see populaterequestparameters() in ./example/main.go            |
+| [API key](https://www.weatherbit.io/pricing)         | Save in api_key.txt. [Requirements](#requirements) section provides more details   |
+| Location                                             | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
+| Granularity                                          | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
 
 ## Example
 
@@ -25,6 +25,10 @@ go run main.go
 ## Design decisions
 
 In accordance with [Mat Ryer - Writing Beautiful Packages in Go](https://youtu.be/cAWlv2SeQus?t=794), the weatherbit-go package is not asynchronous but can be used asynchronously should the user wish to do so using Golang primitives. A slice of type Parameter is recommended over a map, unless you *really* know what you're doing.
+
+## Documentation
+
+Available at [GoDoc](https://godoc.org/github.com/alljames/weatherbit-go/weatherbit)
 
 ## Installation
 
