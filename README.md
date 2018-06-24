@@ -8,11 +8,11 @@ The API endpoints currently supported by the Go API wrapper matches the endpoint
 
 The Go program has three requirements:
 
-| Criterion                                            | Name          |
-| ------                                               |:------------- |
-| [API key](https://www.weatherbit.io/pricing)         | Save in api_key.txt. [Requirements](#requirements) section provides more details   |
-| Location                                             | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
-| Granularity                                          | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
+|                                             |           |
+| ------                                      |:--------- |
+| [API key](https://www.weatherbit.io/pricing)| Save in api_key.txt. [Requirements](#requirements) section provides more details   |
+| Location                                    | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
+| Granularity                                 | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
 
 ## Example
 
