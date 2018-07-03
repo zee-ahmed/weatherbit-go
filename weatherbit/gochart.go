@@ -1,18 +1,19 @@
 package weatherbit
 
 import (
+	"fmt"
 	"github.com/wcharczuk/go-chart"
 	"net/http"
 )
 
 // Swap out with main function in example/main.go
-// func main() {
+func goChartMain() {
 
-// 	fmt.Println("Open browser to http://0.0.0.0:8080")
-// 	http.HandleFunc("/", drawChart)
-// 	http.ListenAndServe(":8080", nil)
+	fmt.Println("Open browser to http://0.0.0.0:8080")
+	http.HandleFunc("/", drawChart)
+	http.ListenAndServe(":8080", nil)
 
-// }
+}
 
 func drawChart(resp http.ResponseWriter, req *http.Request) {
 
