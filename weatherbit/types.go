@@ -84,7 +84,42 @@ type DataPoint struct {
 // See https://www.weatherbit.io/api/codes for details
 type WeatherPoint struct {
 	Icon string `json:"icon,omitempty"`
-	//TODO: Code is sometimes thought to be float64, other times string. Generates Marshall error
-	Code        string `json:"code,omitempty"`
-	Description string `json:"description,omitempty"`
+	// json field "Code" is sometimes understood to be float64, other times string. Generates Marshall error. Therefore declared as both below
+	CodeString  string  `json:"code,omitempty"`
+	CodeNumber  float64 `json:"code,omitempty"`
+	Description string  `json:"description,omitempty"`
+}
+
+// parameters struct holds relevant information for each request
+type parameters struct {
+	url         string
+	apikey      string
+	temporality string
+	granularity string // "current", "forecast", "history"
+	lat, lon    float64
+	city        string
+	state       string // "NC" or "North+Carolina"
+	country     string // "US"
+	cityid      float64
+	units       string // "M" (Metric), "S" (Scientific), "I" (Imperial) - Default "M"
+	marine      string // "f" (exclude offshore observations), "t" (include offshore observations) - Default "f"
+	startDate   string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
+	endDate     string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
+}
+
+// Parameters - an exported struct which holds relevant information for each request
+type Parameters struct {
+	URL         string
+	Apikey      string
+	Temporality string
+	Granularity string // "current", "forecast", "history"
+	Lat, Lon    float64
+	City        string
+	State       string // "NC" or "North+Carolina"
+	Country     string // "US"
+	Cityid      float64
+	Units       string // "M" (Metric), "S" (Scientific), "I" (Imperial) - Default "M"
+	Marine      string // "f" (exclude offshore observations), "t" (include offshore observations) - Default "f"
+	StartDate   string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
+	EndDate     string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
 }

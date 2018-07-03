@@ -26,7 +26,7 @@ func Prettyprint(wbr WbResponse) {
 
 	fmt.Printf("City: %s\n", wbr.Data[0].CityName)
 	count := len(wbr.Data)
-	fmt.Printf("Number of results returned: %d\n", count)
+	fmt.Printf("Number of observations returned: %d\n", count)
 	for i := 0; i < count; i++ {
 
 		observationtimestamp := int64(wbr.Data[i].LastObservationTimeStamp)

@@ -6,13 +6,13 @@ Weatherbit API documentation can be found [here](https://www.weatherbit.io/api).
 
 The API endpoints currently supported by the Go API wrapper matches the endpoints supported by the [Python API wrapper](https://github.com/weatherbit/weatherbit-python).
 
-The Go program takes three criteria:
+The Go program has three requirements:
 
-| Criterion                                            | Name          |
-| ------                                               |:------------- |
-| [API key](https://www.weatherbit.io/pricing)         | Save in api_key.txt. [Requirements](#requirements) section provides more details       |
-| Location                                             | modify wb.Parameters - see populaterequestparameters() in ./example/main.go            |
-| Granularity                                          | modify wb.Parameters - see populaterequestparameters() in ./example/main.go            |
+|                                             |           |
+| ------                                      |:--------- |
+| [API key](https://www.weatherbit.io/pricing)| Save in api_key.txt. [Requirements](#requirements) section provides more details   |
+| Location                                    | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
+| Granularity                                 | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
 
 ## Example
 
@@ -22,11 +22,13 @@ With a Golang installation and an API key saved in the **example** folder, open 
 go run main.go
 ```
 
-You can now navigate to 0.0.0.0:8080, where you will see a basic chart displaying the Global Horizontal Irradiance in Bristol, England for the next 48 hours.
-
 ## Design decisions
 
 In accordance with [Mat Ryer - Writing Beautiful Packages in Go](https://youtu.be/cAWlv2SeQus?t=794), the weatherbit-go package is not asynchronous but can be used asynchronously should the user wish to do so using Golang primitives. A slice of type Parameter is recommended over a map, unless you *really* know what you're doing.
+
+## Documentation
+
+Available at [GoDoc](https://godoc.org/github.com/alljames/weatherbit-go/weatherbit)
 
 ## Installation
 
@@ -51,7 +53,7 @@ Place your API Key into a file named api_key.txt (inside the same directory as t
 Get involved! This package has a *lot* of room for improvement. Below are a list of Go features which could be used in this package to good effect.
 
 * Tests! Testing has significant room for improvement.
-* Handle spaces in City name more gracefully - i.e. if space, convert to %20
+* Handle spaces in City name more gracefully - i.e. if space, convert to %20. This is a fairly easy first issue.
 
 Read the docs, write and try out some improvements and then make a pull request :smile: !
 
