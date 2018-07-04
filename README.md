@@ -22,6 +22,8 @@ With a Golang installation and an API key saved in the **example** folder, open 
 go run main.go
 ```
 
+WARNING: this iteration of the Weatherbit wrapper experiments with strings.Builder(), which is provided in Go 1.10 onwards.
+
 ## Design decisions
 
 In accordance with [Mat Ryer - Writing Beautiful Packages in Go](https://youtu.be/cAWlv2SeQus?t=794), the weatherbit-go package is not asynchronous but can be used asynchronously should the user wish to do so using Golang primitives. A slice of type Parameter is recommended over a map, unless you *really* know what you're doing.
