@@ -8,6 +8,8 @@ The API endpoints currently supported by the Go API wrapper matches the endpoint
 
 The Go program has three requirements:
 
+Go 1.10 or later is required as the program uses [strings builder](https://golang.org/src/strings/builder.go).
+
 |                                             |           |
 | ------                                      |:--------- |
 | [API key](https://www.weatherbit.io/pricing)| Save in api_key.txt. [Requirements](#requirements) section provides more details   |
