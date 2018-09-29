@@ -40,7 +40,7 @@ Available at [GoDoc](https://godoc.org/github.com/alljames/weatherbit-go/weather
 go get github.com/alljames/weatherbit-go/
 ```
 
-To uninstall delete the directory in your $GOPATH/src.
+To uninstall, delete the directory in your $GOPATH/src.
 
 ## Requirements
 

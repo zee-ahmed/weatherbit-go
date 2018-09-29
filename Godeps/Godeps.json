@@ -1,6 +1,6 @@
 {
 	"ImportPath": "github.com/alljames/weatherbit-go",
 	"GoVersion": "go1.10",
-	"GodepVersion": "v79",
+	"GodepVersion": "v80",
 	"Deps": []
 }

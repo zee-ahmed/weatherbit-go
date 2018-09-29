@@ -1,7 +1,7 @@
 package main
 
 import (
-	wb "github.com/alljames/weatherbit-go/weatherbit"
+	wb "github.com/alljames/weatherbit-go/pkg/api"
 	"log"
 )
 
