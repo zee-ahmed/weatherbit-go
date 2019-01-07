@@ -14,7 +14,7 @@ The program has two requirements:
 |                                             |           |
 | ------                                      |:--------- |
 | [API key](https://www.weatherbit.io/pricing)| Save in api_key.txt. [Requirements](#requirements) section provides more details   |
-| Query                                       | modify wb.Parameters - see populaterequestparameters() in ./examples/main.go        |
+| Query                                       | modify wb.Parameters - see `./examples/main.go`        |
 
 ## Example
 
@@ -37,7 +37,7 @@ Available at [GoDoc](https://godoc.org/github.com/alljames/weatherbit-go/weather
 ## Installation
 
 ```bash
-go get github.com/alljames/weatherbit-go/
+go get -u -v github.com/alljames/weatherbit-go/
 ```
 
 To uninstall, delete the directory in your $GOPATH/src.
