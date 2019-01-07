@@ -5,6 +5,7 @@
 .*
 !/.gitignore
 !/.travis.yml
+!/.circleci
 
 # Markdown file used for locally tracking TODOs
 weatherbit-go.md

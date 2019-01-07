@@ -13,10 +13,8 @@ const (
 )
 
 // GetResponse is exported and calls an internal function
-func GetResponse(ep Parameters) WbResponse {
-	p := createimportedparametersstruct(ep)
-	response := syncHTTPGets(p)
-	return response
+func GetResponse(p Parameters) WbResponse {
+	return syncHTTPGets(p)
 }
 
 // Prettyprint can be customised by the user to print the elements of
@@ -24,9 +22,9 @@ func GetResponse(ep Parameters) WbResponse {
 // how to access elements out of the WbResponse struct
 func Prettyprint(wbr WbResponse) {
 
-	fmt.Printf("City: %s\n", wbr.Data[0].CityName)
 	count := len(wbr.Data)
 	fmt.Printf("Number of observations returned: %d\n", count)
+	fmt.Printf("City: %s\n", wbr.Data[0].CityName)
 	for i := 0; i < count; i++ {
 
 		observationtimestamp := int64(wbr.Data[i].LastObservationTimeStamp)
@@ -44,8 +42,7 @@ func Prettyprint(wbr WbResponse) {
 		fmt.Printf("Temperature: %.2f\t", wbr.Data[i].Temperature)
 		fmt.Printf("CloudsHi: %.2f\n", wbr.Data[i].CloudsHi)
 		fmt.Printf("UV: %.3f\t DNI: %.3f\t DHI: %.3f\t", wbr.Data[i].UV, dni, dhi)
-		fmt.Printf("SolarElevationAngle: %.3f\t", solarElevationAngle)
-		fmt.Printf("SolarHourAngle: %.3f\t", wbr.Data[i].SolarHourAngle)
+
 		// Global Horizontal (GHI) = Direct Normal (DNI) X cos(θ) + Diffuse Horizontal (DHI)
 		// TODO: check degree / radians. use golang geo package to convert between the two
 	}

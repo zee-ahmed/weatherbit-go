@@ -10,7 +10,7 @@ import (
 
 // Example URL
 // https://api.weatherbit.io/v2.0/current?lat=LATITUDE&lon=LONGITUDE&key=APIKEY
-func syncHTTPGets(p parameters) WbResponse {
+func syncHTTPGets(p Parameters) WbResponse {
 
 	url := buildRequestURL(p)
 	log.Println(url)

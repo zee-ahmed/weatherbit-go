@@ -90,23 +90,6 @@ type WeatherPoint struct {
 	Description string  `json:"description,omitempty"`
 }
 
-// parameters struct holds relevant information for each request
-type parameters struct {
-	url         string
-	apikey      string
-	temporality string
-	granularity string // "current", "forecast", "history"
-	lat, lon    float64
-	city        string
-	state       string // "NC" or "North+Carolina"
-	country     string // "US"
-	cityid      float64
-	units       string // "M" (Metric), "S" (Scientific), "I" (Imperial) - Default "M"
-	marine      string // "f" (exclude offshore observations), "t" (include offshore observations) - Default "f"
-	startDate   string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
-	endDate     string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
-}
-
 // Parameters - an exported struct which holds relevant information for each request
 type Parameters struct {
 	URL         string
@@ -123,3 +106,20 @@ type Parameters struct {
 	StartDate   string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
 	EndDate     string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
 }
+
+// // parameters struct holds relevant information for each request
+// type parameters struct {
+// 	url         string
+// 	apikey      string
+// 	temporality string
+// 	granularity string // "current", "forecast", "history"
+// 	lat, lon    float64
+// 	city        string
+// 	state       string // "NC" or "North+Carolina"
+// 	country     string // "US"
+// 	cityid      float64
+// 	units       string // "M" (Metric), "S" (Scientific), "I" (Imperial) - Default "M"
+// 	marine      string // "f" (exclude offshore observations), "t" (include offshore observations) - Default "f"
+// 	startDate   string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
+// 	endDate     string // YYYY-MM-DD for daily, YYYY-MM-DD:HH for hourly
+// }

@@ -6,25 +6,25 @@ Weatherbit API documentation can be found [here](https://www.weatherbit.io/api).
 
 The API endpoints currently supported by the Go API wrapper matches the endpoints supported by the [Python API wrapper](https://github.com/weatherbit/weatherbit-python).
 
-The Go program has three requirements:
+The program has two requirements:
 
-Go 1.10 or later is required as the program uses [strings builder](https://golang.org/src/strings/builder.go).
+* Go 1.10 or later
+* a Weatherbit API key
 
 |                                             |           |
 | ------                                      |:--------- |
 | [API key](https://www.weatherbit.io/pricing)| Save in api_key.txt. [Requirements](#requirements) section provides more details   |
-| Location                                    | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
-| Granularity                                 | modify wb.Parameters - see populaterequestparameters() in ./example/main.go        |
+| Query                                       | modify wb.Parameters - see populaterequestparameters() in ./examples/main.go        |
 
 ## Example
 
-With a Golang installation and an API key saved in the **example** folder, open a terminal from the **example** directory and run:
+With a Golang installation and an API key saved in the **examples** folder, open a terminal from the **examples** directory and run:
 
 ```bash
 go run main.go
 ```
 
-WARNING: this iteration of the Weatherbit wrapper experiments with strings.Builder(), which is provided in Go 1.10 onwards.
+WARNING: this iteration of the Weatherbit wrapper experiments with [strings.Builder()](https://golang.org/src/strings/builder.go), which is provided in Go 1.10 onwards.
 
 ## Design decisions
 
