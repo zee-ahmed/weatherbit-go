@@ -24,7 +24,12 @@ With a Golang installation and an API key saved in the **examples** folder, open
 go run main.go
 ```
 
-WARNING: this iteration of the Weatherbit wrapper experiments with [strings.Builder()](https://golang.org/src/strings/builder.go), which is provided in Go 1.10 onwards.
+```go
+
+```
+
+
+The Weatherbit wrapper uses [strings.Builder()](https://golang.org/src/strings/builder.go), provided in Go 1.10 onwards.
 
 ## Design decisions
 

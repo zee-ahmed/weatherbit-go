@@ -5,6 +5,7 @@ package weatherbit
 import (
 	"fmt"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -21,7 +22,7 @@ func buildRequestURL(p Parameters) string {
 
 	sb.WriteString(addlocation(p))
 	sb.WriteString(addtimeframe(p))
-	sb.WriteString("&key=" + p.Apikey)
+	sb.WriteString("&key=" + os.Getenv("WBITKEY"))
 
 	return sb.String()
 }
