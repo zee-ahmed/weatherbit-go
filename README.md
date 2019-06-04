@@ -62,7 +62,6 @@ Place your API Key into a file named api_key.txt (inside the same directory as t
 Get involved! This package has a *lot* of room for improvement. Below are a list of Go features which could be used in this package to good effect.
 
 * Tests! Testing has significant room for improvement.
-* Handle spaces in City name more gracefully - i.e. if space, convert to %20. This is a fairly easy first issue.
 
 Read the docs, write and try out some improvements and then make a pull request :smile: !
 
